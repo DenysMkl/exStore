@@ -1,0 +1,292 @@
+@mixin flexblock($just, $align, $dir: row){
+    display: flex;
+    justify-content: $just;
+    align-items: $align;
+    flex-direction: $dir;
+}
+
+*,
+*::before,
+*::after
+{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+ul,
+li,
+ol
+{
+    list-style-type: none;
+}
+
+img
+{
+    vertical-align: top;
+}
+
+html,
+body
+{
+    height: 100%;
+    line-height: 1;
+    font-family: 'Lexend', sans-serif;
+    font-size: 12px;
+    background-color: #fff;
+}
+
+[class*='_container']
+{
+    max-width: 1140px;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+
+.wrapper{
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+
+    header{
+        position: relative;
+        .header_container{
+            height: 100vh;
+            font-size: 18px;
+            .navbar{
+                position: relative;
+                z-index: 2;
+                padding: 24px 0;
+                @include flexblock(space-between, center);
+                color: white;
+                .storeName{
+                    font-size: 28px;
+                    font-weight: bold;
+                    font-family: 'Poppins', sans-serif;
+                    color: white;
+                    &.ex{
+                        color: #3B44F6;
+                    }
+                }
+
+                .barMenu{
+                    @include flexblock(space-around, center);
+                    .barItem{
+                        padding: 8px 12px;
+                        opacity: .7;
+                        margin: 0 20px;
+                        font-weight: 300;
+                        text-transform: capitalize;
+                        &.active{
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .formBut{
+                    @include flexblock(space-between, center);
+                    text-transform: capitalize;
+                    flex: 0 1 300px;
+                    > *{
+                        padding: 14px 0;
+                        font-weight: 300;
+                        margin: 0 12px;
+                        flex: 1 1 50%;
+                        text-align: center;
+                    }
+
+                    .regBut{
+                        background-color: #3B44F6;
+                        border-radius: 8px;
+                        border: 2px solid #3B44F6;
+                    }
+
+                    .logBut{
+                        border-radius: 8px;
+                        border: 2px solid #fff;
+                    }
+
+                }
+            }
+            .slider{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                @include flexblock(space-between, center, column);
+
+                .pointers{
+                    @include flexblock(center, center);
+                    width: 40%;
+                    z-index: 1;
+                    flex: 1 1 auto;
+
+                    > *{
+                        margin: 0 6px;
+                    }
+
+                    .point{
+                        padding: 5px;
+                        background-color: rgb(255, 255, 255, .2);
+                        border-radius: 100%;
+
+                        &.active{
+                            background-color: #3949AB;
+                        }
+                    }
+                }
+
+                .slide{
+                    @include flexblock(space-between, center);
+                    color: #fff;
+                    z-index: 1;
+                    font-size: 32px;
+                    width: 100%;
+                    flex: 0 0 90%;
+
+                    .banner{    
+                        margin: 0;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                    > *{
+                        margin: 0 20px;
+                        z-index: 1;
+                    }
+    
+                    .arrow{
+                        @include flexblock(flex-start, center);
+                        padding: 12px;
+                        border-radius: 100%;
+                        background-color: rgb(128, 128, 128, .4);
+                        width: 40px;
+                        height: 40px;
+                        border: 2px solid rgb(255, 255, 255, .5);
+    
+                        &.mirror{
+                            transform: rotate(180deg);
+                        }
+                    }
+    
+                    .textContent{
+                        
+                        @include flexblock(center, flex-start, column);
+                        flex: 1 1 auto;
+    
+                        > *{
+                            margin: 30px;
+                        }
+    
+                        .caption{
+                            font-size: 48px;
+                            font-weight: bold;
+                        }
+    
+                        .descr{
+                            font-size: 24px;
+                            max-width: 400px;
+                            line-height: 1.5;
+                        }
+    
+                        .startBut{
+                            font-size: 16px;
+                            font-weight: 200;
+                            padding: 16px 20px;
+                            background-color: #3B44F6;
+                            border-radius: 8px;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
+    main{
+        flex: 1 1 auto;
+
+        .main_container{
+            @include flexblock(center, center, column);
+            
+            >*{
+                width: 100%;
+            }
+
+            .exp{
+                @include flexblock(center, center, column);
+                color: #181818;
+                margin: 70px 0;
+                
+                >*{
+                    margin: 30px 0;
+                }
+
+                .ques{
+                    @include flexblock(center, center, column);
+                    width: 70%;
+                    text-align: center;
+                    line-height: 1.5;
+                    .whyUs{
+                        font-size: 36px;
+                        font-weight: bold;
+                    }
+                    .answer{
+                        font-size: 18px;
+                        max-width: 400px;
+                    }
+                }
+
+                .achiev{
+                    @include flexblock(space-around, center);
+                    width: 100%;
+                    .vecImg{
+                        width: 100px;
+                        height: 100px;
+                        background-color: #D8DAFD;
+                        border-radius: 100%;
+                        margin: 0 0 20px;
+                        @include flexblock(center, center);
+                    }
+                    .achievBlock{
+                        @include flexblock(center, center, column);
+                        .underImg{
+                            font-size: 20px;
+                            font-weight: bold;
+                            max-width: 240px;
+                            text-align: center;
+                            line-height: 1.3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
