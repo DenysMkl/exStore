@@ -60,7 +60,71 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow: hidden;
-  position: relative;
+}
+.wrapper .arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 12px;
+  border-radius: 100%;
+  background-color: rgba(128, 128, 128, 0.4);
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.wrapper .mirror {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.wrapper .storeName {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+.wrapper .storeName.ex {
+  color: #3B44F6;
+}
+.wrapper .pointers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 40%;
+  z-index: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.wrapper .pointers > * {
+  margin: 0 6px;
+}
+.wrapper .pointers .point {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+}
+.wrapper .pointers .point.active {
+  background-color: #3949AB;
 }
 .wrapper header {
   position: relative;
@@ -87,15 +151,6 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   color: white;
-}
-.wrapper header .header_container .navbar .storeName {
-  font-size: 28px;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  color: white;
-}
-.wrapper header .header_container .navbar .storeName.ex {
-  color: #3B44F6;
 }
 .wrapper header .header_container .navbar .barMenu {
   display: -webkit-box;
@@ -178,37 +233,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.wrapper header .header_container .slider .pointers {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 40%;
-  z-index: 1;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-}
-.wrapper header .header_container .slider .pointers > * {
-  margin: 0 6px;
-}
-.wrapper header .header_container .slider .pointers .point {
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 100%;
-}
-.wrapper header .header_container .slider .pointers .point.active {
-  background-color: #3949AB;
-}
 .wrapper header .header_container .slider .slide {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -246,31 +270,6 @@ body {
 .wrapper header .header_container .slider .slide > * {
   margin: 0 20px;
   z-index: 1;
-}
-.wrapper header .header_container .slider .slide .arrow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 12px;
-  border-radius: 100%;
-  background-color: rgba(128, 128, 128, 0.4);
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-}
-.wrapper header .header_container .slider .slide .arrow.mirror {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
 }
 .wrapper header .header_container .slider .slide .textContent {
   display: -webkit-box;
@@ -314,6 +313,15 @@ body {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
+.wrapper main .mainBlack {
+  background-color: #0E0E0E;
+}
+.wrapper main .mainBlack .top .lefttitle {
+  color: #F5F4F9;
+}
+.wrapper main .mainWhite {
+  background-color: #F5F4F9;
+}
 .wrapper main .main_container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -331,6 +339,34 @@ body {
 }
 .wrapper main .main_container > * {
   width: 100%;
+}
+.wrapper main .main_container .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+.wrapper main .main_container .top .lefttitle {
+  text-transform: capitalize;
+  font-size: 36px;
+  font-weight: bold;
+}
+.wrapper main .main_container .top .details {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: #3B44F6;
+  font-weight: bold;
+  font-size: 18px;
 }
 .wrapper main .main_container .exp {
   display: -webkit-box;
@@ -434,4 +470,658 @@ body {
   max-width: 240px;
   text-align: center;
   line-height: 1.3;
+}
+.wrapper main .main_container .genresSec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 40px 0;
+}
+.wrapper main .main_container .genresSec > * {
+  margin: 12px 0;
+}
+.wrapper main .main_container .genresSec .catalogOfGamesGenres {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+.wrapper main .main_container .genresSec .catalogOfGamesGenres .gameBlock {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.wrapper main .main_container .genresSec .catalogOfGamesGenres .gameBlock .genreCard {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  -webkit-filter: brightness(0.3);
+          filter: brightness(0.3);
+  border-radius: 8px;
+  z-index: 1;
+}
+.wrapper main .main_container .genresSec .catalogOfGamesGenres .gameBlock .gategory {
+  z-index: 2;
+  position: relative;
+  color: #fff;
+  font-size: 20px;
+}
+.wrapper main .main_container .bestSell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding: 0 12px;
+  overflow-x: hidden;
+}
+.wrapper main .main_container .bestSell .cardBlockBestSellers {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.wrapper main .main_container .bestSell .cardBlockBestSellers .card {
+  margin: 20px;
+}
+.wrapper main .main_container .bestSell .cardBlockBestSellers .card:nth-child(1) {
+  margin-left: 0;
+}
+.wrapper main .main_container .bestSell .arrow {
+  position: absolute;
+  visibility: hidden;
+  z-index: 999;
+}
+.wrapper main .main_container .bestSell .arrow.left {
+  left: 0;
+}
+.wrapper main .main_container .bestSell .arrow.mirror {
+  right: 0;
+}
+.wrapper main .main_container .bestSell .arrow.active {
+  visibility: visible;
+}
+.wrapper main .main_container .card {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 16px;
+  border-radius: 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.wrapper main .main_container .card .descrCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 16px 0;
+}
+.wrapper main .main_container .card .descrCard .gameName {
+  font-size: 20px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: #181818;
+  padding: 12px 0;
+}
+.wrapper main .main_container .card .descrCard .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 16px;
+}
+.wrapper main .main_container .card .descrCard .price .currPrice {
+  color: #3B44F6;
+}
+.wrapper main .main_container .card .descrCard .price .prevPriceBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: rgba(125, 125, 125, 0.3);
+  border-radius: 4px;
+}
+.wrapper main .main_container .card .descrCard .price .prevPriceBlock .discont {
+  color: #FC326F;
+  background-color: rgba(252, 50, 111, 0.3);
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.wrapper main .main_container .card .descrCard .price .prevPriceBlock .prevPrice {
+  padding: 4px 18px;
+  color: #7D7D7D;
+}
+.wrapper main .main_container .card .buyCard {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
+.wrapper main .main_container .popGames {
+  margin: 30px 0 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 12px;
+}
+.wrapper main .main_container .popGames .cardBlockPopular {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.wrapper main .main_container .comingGames {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 50px 0 80px;
+}
+.wrapper main .main_container .comingGames .comingGamesList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding: 20px 0;
+}
+.wrapper main .main_container .comingGames .comingGamesList > * {
+  margin: 0 12px;
+}
+.wrapper main .main_container .comingGames .comingGamesList .cardBlock {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: 100%;
+  position: relative;
+  margin: 12px;
+  z-index: 1;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid rgba(250, 250, 250, 0.4);
+  border-radius: 8px;
+}
+.wrapper main .main_container .comingGames .comingGamesList .cardBlock .gameName {
+  z-index: 2;
+  margin: 8px;
+  max-width: 50%;
+  line-height: 1.3;
+}
+.wrapper main .main_container .comingGames .comingGamesList .cardBlock .preorder {
+  z-index: 2;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 16px;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin: 8px;
+}
+.wrapper main .main_container .comingGames .comingGamesList .cardBlock::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+  border-radius: 8px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.1)), to(rgb(0, 0, 0)));
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgb(0, 0, 0));
+}
+.wrapper main .main_container .comingGames .comingGamesList .cardBlock .cardImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  z-index: -1;
+}
+.wrapper main .main_container .comingGames .comingGamesList .comingGamesBigBlock {
+  -webkit-box-flex: 3;
+      -ms-flex: 3 1 auto;
+          flex: 3 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 120vh;
+  font-size: 28px;
+}
+.wrapper main .main_container .comingGames .comingGamesList .comingGamesBigBlock .cardBlock {
+  padding: 30px;
+}
+.wrapper main .main_container .comingGames .comingGamesList .comingGamesSmallBlock {
+  -webkit-box-flex: 2;
+      -ms-flex: 2 1 auto;
+          flex: 2 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 120vh;
+  font-size: 24px;
+}
+.wrapper main .main_container .comingGames .comingGamesList .comingGamesSmallBlock .cardBlock {
+  padding: 20px;
+}
+.wrapper main .main_container .feedback {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 80px 0 120px;
+}
+.wrapper main .main_container .feedback .satisf {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #1E1E1E;
+  max-width: 500px;
+  text-align: center;
+}
+.wrapper main .main_container .feedback .satisf .satTitle {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.wrapper main .main_container .feedback .satisf .caption {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.wrapper main .main_container .feedback .commentsBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin: 60px 0;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  margin: 40px 0;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #1E1E1E;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px 32px 40px;
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock.active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock.active .userAvatar {
+  padding: 55px;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock.active .nickname {
+  font-size: 20px;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock.active .comment {
+  font-size: 15px;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock .userAvatar {
+  padding: 45px;
+  background-color: gray;
+  border-radius: 100%;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock .userAvatar .avatarImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock .nickname {
+  font-size: 20px;
+  font-weight: bold;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock .starsBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock .starsBlock .star {
+  padding: 12px 2px;
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock .starsBlock .star.nonactive {
+  -webkit-filter: opacity(0.5);
+          filter: opacity(0.5);
+}
+.wrapper main .main_container .feedback .commentsBlock .userComments .commentBlock .comment {
+  max-width: 240px;
+  font-size: 14px;
+}
+.wrapper main .main_container .feedback .commentsBlock .pointers .point {
+  background-color: #D8DAFD;
+  margin: 4px;
+}
+.wrapper main .main_container .feedback .commentsBlock .pointers .point.active {
+  background-color: #3949AB;
+}
+.wrapper footer {
+  background-color: #0E0E0E;
+}
+.wrapper footer .footer_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff;
+}
+.wrapper footer .footer_container .footBar {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 50px 0 65px;
+}
+.wrapper footer .footer_container .footBar .footBarItem {
+  font-size: 18px;
+}
+.wrapper footer .footer_container .footBar .footBarItem .subfootBar {
+  margin: 20px 0;
+  font-size: 16px;
+  font-weight: 200;
+}
+.wrapper footer .footer_container .footBar .footBarItem .subfootBar .subfootBarItem {
+  padding: 10px 0;
+}
+.wrapper footer .footer_container .footBar .footBarItem .subfootBar .subfootBarItem .sublink {
+  color: #a0a0a0;
+}
+.wrapper footer .footer_container .footBar .footBarItem .socialNetworks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 20px 0;
+}
+.wrapper footer .footer_container .footBar .footBarItem .socialNetworks .socialItem {
+  padding: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 100%;
+  margin: 0 8px;
+  position: relative;
+}
+.wrapper footer .footer_container .footBar .footBarItem .socialNetworks .socialItem:nth-child(1) {
+  margin: 0 8px 0 0;
+}
+.wrapper footer .footer_container .footBar .footBarItem .socialNetworks .socialItem .netwIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

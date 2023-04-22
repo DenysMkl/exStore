@@ -1,4 +1,4 @@
-@mixin flexblock($just, $align, $dir: row){
+@mixin flexblock($just, $align, $dir: row) {
     display: flex;
     justify-content: $just;
     align-items: $align;
@@ -7,8 +7,7 @@
 
 *,
 *::before,
-*::after
-{
+*::after {
     padding: 0;
     margin: 0;
     border: 0;
@@ -18,8 +17,8 @@
 a:active,
 a:hover,
 a {
-  text-decoration: none;
-  color: whitesmoke;
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 
@@ -28,27 +27,23 @@ h2,
 h3,
 h4,
 h5,
-h6
-{
+h6 {
     font-weight: inherit;
     font-size: inherit;
 }
 
 ul,
 li,
-ol
-{
+ol {
     list-style-type: none;
 }
 
-img
-{
+img {
     vertical-align: top;
 }
 
 html,
-body
-{
+body {
     height: 100%;
     line-height: 1;
     font-family: 'Lexend', sans-serif;
@@ -56,60 +51,100 @@ body
     background-color: #fff;
 }
 
-[class*='_container']
-{
+[class*='_container'] {
     max-width: 1140px;
     margin: 0px auto;
     padding: 0px 15px;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     min-height: 100%;
     flex-direction: column;
     overflow: hidden;
-    position: relative;
 
-    header{
+    .arrow {
+        @include flexblock(flex-start, center);
+        padding: 12px;
+        border-radius: 100%;
+        background-color: rgb(128, 128, 128, .4);
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgb(255, 255, 255, .5);
+    }
+
+    .mirror {
+        transform: rotate(180deg);
+    }
+
+    .storeName {
+        font-size: 28px;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+
+        &.ex {
+            color: #3B44F6;
+        }
+    }
+
+    .pointers {
+        @include flexblock(center, center);
+        width: 40%;
+        z-index: 1;
+        flex: 1 1 auto;
+
+        >* {
+            margin: 0 6px;
+        }
+
+        .point {
+            padding: 5px;
+            background-color: rgb(255, 255, 255, .2);
+            border-radius: 100%;
+
+            &.active {
+                background-color: #3949AB;
+            }
+        }
+    }
+
+    header {
         position: relative;
-        .header_container{
+
+        .header_container {
             height: 100vh;
             font-size: 18px;
-            .navbar{
+
+            .navbar {
                 position: relative;
                 z-index: 2;
                 padding: 24px 0;
                 @include flexblock(space-between, center);
                 color: white;
-                .storeName{
-                    font-size: 28px;
-                    font-weight: bold;
-                    font-family: 'Poppins', sans-serif;
-                    color: white;
-                    &.ex{
-                        color: #3B44F6;
-                    }
-                }
 
-                .barMenu{
+                .barMenu {
                     @include flexblock(space-around, center);
-                    .barItem{
+
+                    .barItem {
                         padding: 8px 12px;
                         opacity: .7;
                         margin: 0 20px;
                         font-weight: 300;
                         text-transform: capitalize;
-                        &.active{
+
+                        &.active {
                             opacity: 1;
                         }
                     }
                 }
 
-                .formBut{
+                .formBut {
                     @include flexblock(space-between, center);
                     text-transform: capitalize;
                     flex: 0 1 300px;
-                    > *{
+
+                    >* {
                         padding: 14px 0;
                         font-weight: 300;
                         margin: 0 12px;
@@ -117,20 +152,21 @@ body
                         text-align: center;
                     }
 
-                    .regBut{
+                    .regBut {
                         background-color: #3B44F6;
                         border-radius: 8px;
                         border: 2px solid #3B44F6;
                     }
 
-                    .logBut{
+                    .logBut {
                         border-radius: 8px;
                         border: 2px solid #fff;
                     }
 
                 }
             }
-            .slider{
+
+            .slider {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -138,28 +174,7 @@ body
                 height: 100vh;
                 @include flexblock(space-between, center, column);
 
-                .pointers{
-                    @include flexblock(center, center);
-                    width: 40%;
-                    z-index: 1;
-                    flex: 1 1 auto;
-
-                    > *{
-                        margin: 0 6px;
-                    }
-
-                    .point{
-                        padding: 5px;
-                        background-color: rgb(255, 255, 255, .2);
-                        border-radius: 100%;
-
-                        &.active{
-                            background-color: #3949AB;
-                        }
-                    }
-                }
-
-                .slide{
+                .slide {
                     @include flexblock(space-between, center);
                     color: #fff;
                     z-index: 1;
@@ -167,7 +182,7 @@ body
                     width: 100%;
                     flex: 0 0 90%;
 
-                    .banner{    
+                    .banner {
                         margin: 0;
                         position: absolute;
                         top: 0;
@@ -177,46 +192,33 @@ body
                         object-fit: cover;
                         object-position: center;
                     }
-                    > *{
+
+                    >* {
                         margin: 0 20px;
                         z-index: 1;
                     }
-    
-                    .arrow{
-                        @include flexblock(flex-start, center);
-                        padding: 12px;
-                        border-radius: 100%;
-                        background-color: rgb(128, 128, 128, .4);
-                        width: 40px;
-                        height: 40px;
-                        border: 2px solid rgb(255, 255, 255, .5);
-    
-                        &.mirror{
-                            transform: rotate(180deg);
-                        }
-                    }
-    
-                    .textContent{
-                        
+
+                    .textContent {
+
                         @include flexblock(center, flex-start, column);
                         flex: 1 1 auto;
-    
-                        > *{
+
+                        >* {
                             margin: 30px;
                         }
-    
-                        .caption{
+
+                        .caption {
                             font-size: 48px;
                             font-weight: bold;
                         }
-    
-                        .descr{
+
+                        .descr {
                             font-size: 24px;
                             max-width: 400px;
                             line-height: 1.5;
                         }
-    
-                        .startBut{
+
+                        .startBut {
                             font-size: 16px;
                             font-weight: 200;
                             padding: 16px 20px;
@@ -226,48 +228,83 @@ body
                     }
                 }
             }
-            
+
         }
     }
 
-    main{
+    main {
         flex: 1 1 auto;
 
-        .main_container{
+        .mainBlack {
+            background-color: #0E0E0E;
+
+            .top {
+                .lefttitle {
+                    color: #F5F4F9
+                }
+            }
+        }
+
+        .mainWhite {
+            background-color: #F5F4F9;
+        }
+
+        .main_container {
             @include flexblock(center, center, column);
-            
-            >*{
+
+            >* {
                 width: 100%;
             }
 
-            .exp{
+            .top {
+                @include flexblock(space-between, center);
+                width: 100%;
+
+                .lefttitle {
+                    text-transform: capitalize;
+                    font-size: 36px;
+                    font-weight: bold;
+                }
+
+                .details {
+                    align-self: flex-end;
+                    color: #3B44F6;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+
+            .exp {
                 @include flexblock(center, center, column);
                 color: #181818;
                 margin: 70px 0;
-                
-                >*{
+
+                >* {
                     margin: 30px 0;
                 }
 
-                .ques{
+                .ques {
                     @include flexblock(center, center, column);
                     width: 70%;
                     text-align: center;
                     line-height: 1.5;
-                    .whyUs{
+
+                    .whyUs {
                         font-size: 36px;
                         font-weight: bold;
                     }
-                    .answer{
+
+                    .answer {
                         font-size: 18px;
                         max-width: 400px;
                     }
                 }
 
-                .achiev{
+                .achiev {
                     @include flexblock(space-around, center);
                     width: 100%;
-                    .vecImg{
+
+                    .vecImg {
                         width: 100px;
                         height: 100px;
                         background-color: #D8DAFD;
@@ -275,14 +312,422 @@ body
                         margin: 0 0 20px;
                         @include flexblock(center, center);
                     }
-                    .achievBlock{
+
+                    .achievBlock {
                         @include flexblock(center, center, column);
-                        .underImg{
+
+                        .underImg {
                             font-size: 20px;
                             font-weight: bold;
                             max-width: 240px;
                             text-align: center;
                             line-height: 1.3;
+                        }
+                    }
+                }
+            }
+
+            .genresSec {
+                @include flexblock(center, center, column);
+                margin: 40px 0;
+
+                >* {
+                    margin: 12px 0;
+                }
+
+                .catalogOfGamesGenres {
+                    @include flexblock(space-between, center);
+                    width: 100%;
+
+                    .gameBlock {
+                        width: 160px;
+                        height: 160px;
+                        position: relative;
+                        @include flexblock(center, center);
+
+                        .genreCard {
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            object-fit: cover;
+                            object-position: center;
+                            filter: brightness(.3);
+                            border-radius: 8px;
+                            z-index: 1;
+                        }
+
+                        .gategory {
+                            z-index: 2;
+                            position: relative;
+                            color: #fff;
+                            font-size: 20px;
+
+                        }
+                    }
+                }
+            }
+
+            .bestSell {
+                @include flexblock(center, center, column);
+                position: relative;
+                padding: 0 12px;
+                overflow-x: hidden;
+
+                .cardBlockBestSellers {
+                    width: 100%;
+                    @include flexblock(flex-start, center);
+
+                    .card {
+                        margin: 20px;
+
+                        &:nth-child(1) {
+                            margin-left: 0;
+                        }
+                    }
+                }
+
+                .arrow {
+                    position: absolute;
+                    visibility: hidden;
+                    z-index: 999;
+
+                    &.left {
+                        left: 0;
+                    }
+
+                    &.mirror {
+                        right: 0;
+                    }
+
+                    &.active {
+                        visibility: visible;
+                    }
+                }
+            }
+
+            .card {
+                margin: 20px 0;
+                @include flexblock(center, center, column);
+                padding: 16px;
+                border-radius: 8px;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+                .descrCard {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    padding: 16px 0;
+
+                    .gameName {
+                        font-size: 20px;
+                        align-self: flex-start;
+                        color: #181818;
+                        padding: 12px 0;
+                    }
+
+                    .price {
+                        @include flexblock(space-between, center);
+                        font-size: 16px;
+
+                        .currPrice {
+                            color: #3B44F6;
+                        }
+
+                        .prevPriceBlock {
+                            @include flexblock(space-between, center);
+                            background-color: rgb(125, 125, 125, .3);
+                            border-radius: 4px;
+
+                            .discont {
+                                color: #FC326F;
+                                background-color: rgb(252, 50, 111, .3);
+                                padding: 6px;
+                                border-radius: 4px;
+                                font-size: 12px;
+
+                            }
+
+                            .prevPrice {
+                                padding: 4px 18px;
+                                color: #7D7D7D;
+                            }
+                        }
+                    }
+                }
+
+                .buyCard {
+                    object-fit: cover;
+                    object-position: center;
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 8px;
+                }
+            }
+
+            .popGames {
+                margin: 30px 0 100px;
+                @include flexblock(center, center, column);
+                padding: 0 12px;
+
+                .cardBlockPopular {
+                    @include flexblock(space-between, center);
+                    flex-wrap: wrap;
+                }
+            }
+
+            .comingGames {
+                @include flexblock(center, center, column);
+                margin: 50px 0 80px;
+
+                .comingGamesList {
+                    @include flexblock(center, center);
+                    width: 100%;
+                    padding: 20px 0;
+
+                    >* {
+                        margin: 0 12px;
+                    }
+
+                    .cardBlock {
+                        flex: 1 1 auto;
+                        width: 100%;
+                        position: relative;
+                        margin: 12px;
+                        z-index: 1;
+                        color: #fff;
+                        @include flexblock(flex-end, flex-start, column);
+                        border: 1px solid rgb(250, 250, 250, 0.4);
+                        border-radius: 8px;
+
+                        .gameName {
+                            z-index: 2;
+                            margin: 8px;
+                            max-width: 50%;
+                            line-height: 1.3;
+                        }
+
+                        .preorder {
+                            z-index: 2;
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding: 12px 16px;
+                            border: 2px solid white;
+                            border-radius: 8px;
+                            margin: 8px;
+                        }
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            z-index: 1;
+                            height: 100%;
+                            border-radius: 8px;
+                            background: linear-gradient(rgb(255, 255, 255, .1), rgb(0, 0, 0, 1));
+                        }
+
+                        .cardImg {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 8px;
+                            z-index: -1;
+                        }
+                    }
+
+                    .comingGamesBigBlock {
+                        flex: 3 1 auto;
+                        @include flexblock(space-between, center, column);
+                        height: 120vh;
+                        font-size: 28px;
+
+                        .cardBlock {
+                            padding: 30px;
+                        }
+                    }
+
+                    .comingGamesSmallBlock {
+                        flex: 2 1 auto;
+                        @include flexblock(space-between, center, column);
+                        height: 120vh;
+                        font-size: 24px;
+
+                        .cardBlock {
+                            padding: 20px;
+                        }
+                    }
+                }
+            }
+
+            .feedback {
+                @include flexblock(center, center, column);
+                margin: 80px 0 120px;
+
+                .satisf {
+                    @include flexblock(center, center, column);
+                    color: #1E1E1E;
+                    max-width: 500px;
+                    text-align: center;
+
+                    .satTitle {
+                        font-size: 36px;
+                        font-weight: bold;
+                        margin-bottom: 16px;
+                    }
+
+                    .caption {
+                        font-size: 18px;
+                        line-height: 1.5;
+                    }
+                }
+
+                .commentsBlock {
+                    @include flexblock(center, center, column);
+                    width: 100%;
+                    margin: 60px 0;
+
+                    .userComments {
+                        flex: 1 1 auto;
+                        @include flexblock(space-around, center);
+                        width: 100%;
+                        margin: 40px 0;
+
+                        .commentBlock {
+                            @include flexblock(center, center, column);
+                            color: #1E1E1E;
+                            text-align: center;
+                            background-color: #fff;
+                            border-radius: 8px;
+                            padding: 20px 32px 40px;
+                            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+                            &.active {
+                                transform: scale(1.1);
+
+                                .userAvatar {
+                                    padding: 55px;
+                                }
+
+                                .nickname {
+                                    font-size: 20px;
+                                }
+
+                                .comment {
+                                    font-size: 15px;
+                                }
+                            }
+
+                            .userAvatar {
+                                padding: 45px;
+                                background-color: gray;
+                                border-radius: 100%;
+                                margin: 20px;
+                                position: relative;
+                                overflow: hidden;
+
+                                .avatarImg {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+
+                            .nickname {
+                                font-size: 20px;
+                                font-weight: bold;
+                            }
+
+                            .starsBlock {
+                                @include flexblock(space-around, center);
+
+                                .star {
+                                    padding: 12px 2px;
+
+                                    &.nonactive {
+                                        filter: opacity(.5);
+                                    }
+                                }
+                            }
+
+                            .comment {
+                                max-width: 240px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    .pointers {
+
+                        .point {
+                            background-color: #D8DAFD;
+                            margin: 4px;
+
+                            &.active {
+                                background-color: #3949AB;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        background-color: #0E0E0E;
+
+        .footer_container {
+            @include flexblock(center, center, column);
+            color: #fff;
+
+            .footBar {
+                width: 100%;
+                flex: 1 1 auto;
+                @include flexblock(space-between, flex-start);
+                padding: 50px 0 65px;
+                .footBarItem {
+                    font-size: 18px;
+                    .subfootBar{
+                        margin: 20px 0;
+                        font-size: 16px;
+                        font-weight: 200;
+                        .subfootBarItem{
+                            padding: 10px 0;
+                            .sublink{
+                                color: #a0a0a0;
+                            }
+                        }
+                    }
+                    .socialNetworks{
+                        @include flexblock(space-between, center);
+                        margin: 20px 0;
+                        .socialItem{
+                            
+                            padding: 18px;
+                            background-color: rgb(255, 255, 255, .1);
+                            border-radius: 100%;
+                            margin: 0 8px;
+                            position: relative;
+                            &:nth-child(1){
+                                margin: 0 8px 0 0;
+                            }
+
+                            .netwIcon{
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
                         }
                     }
                 }
