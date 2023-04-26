@@ -3,7 +3,7 @@ slide = document.querySelector('.slidePhotos')
 bannersCount = gsap.utils.toArray('.bannerBlock').length
 headPointers = gsap.utils.toArray('.headerPointers > .point')
 
-counter = 0
+counterSlide = 0
 
 function pointSwap(count, elem) {
     return elem.classList.toggle('active', headPointers.indexOf(elem) == count%bannersCount)
@@ -12,17 +12,17 @@ function pointSwap(count, elem) {
 function animation(targ){
     gsap.to(targ, {
         duration: 1,
-        translateX: `-${counter%bannersCount*100}%`
+        translateX: `-${counterSlide%bannersCount*100}%`
     })
 }
 
 swapBanners = setInterval(()=>{
-    counter+=1
+    counterSlide+=1
 
     animation(slide)
 
     headPointers.forEach(el=>{
-        el.classList.toggle('active', pointSwap(counter, el))
+        el.classList.toggle('active', pointSwap(counterSlide, el))
     })
 
 }, 5000)
@@ -30,23 +30,23 @@ swapBanners = setInterval(()=>{
 arrows.forEach(elem=>{
     elem.addEventListener('click', ()=>{
         if (elem.classList.contains('mirror')){
-            counter+=1
+            counterSlide+=1
         } else{
-            if (counter == 0){
-                counter = bannersCount-1
+            if (counterSlide == 0){
+                counterSlide = bannersCount-1
             }else{
-                counter-=1
+                counterSlide-=1
             }
         }
         clearInterval(swapBanners)
         
         swapBanners = swapBanners = setInterval(()=>{
-            counter+=1
+            counterSlide+=1
         
             animation(slide)
         
             headPointers.forEach(el=>{
-                el.classList.toggle('active', pointSwap(counter, el))
+                el.classList.toggle('active', pointSwap(counterSlide, el))
             })
         
         }, 5000)
@@ -54,7 +54,7 @@ arrows.forEach(elem=>{
         animation(slide)
 
         headPointers.forEach(el=>{
-            el.classList.toggle('active', pointSwap(counter, el))
+            el.classList.toggle('active', pointSwap(counterSlide, el))
         })
         
     })
