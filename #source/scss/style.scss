@@ -194,20 +194,15 @@ body {
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        margin: 0;
                         @include flexblock(flex-start, center);
                         
                         .bannerBlock{
                             flex: 0 0 100%;
                             height: 100%;
-                            @include flexblock(center, center);
                             position: relative;
-
-                            .banner {
-                                margin: 0;
+                            @include flexblock(center, center);
+                            .banner{
                                 position: absolute;
-                                top: 0;
-                                left: 0;
                                 width: 100%;
                                 height: 100%;
                                 object-fit: cover;
@@ -215,7 +210,7 @@ body {
                             }
 
                             .textContent {
-                                margin: 80px;
+                                margin: 0 80px;
                                 z-index: 1;
                                 @include flexblock(center, flex-start, column);
                                 flex: 1 1 auto;
@@ -243,7 +238,6 @@ body {
                                 }
                             }
                         }
-                        
                     }
                 }
             }
@@ -432,7 +426,8 @@ body {
                 padding: 16px;
                 border-radius: 8px;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
+                cursor: pointer;
+                
                 .descrCard {
                     display: flex;
                     flex-direction: column;
@@ -449,7 +444,14 @@ body {
                     .price {
                         @include flexblock(space-between, center);
                         font-size: 16px;
-
+                        .free{
+                            color: #3B44F6;
+                            padding: 10px;
+                            text-transform: capitalize;
+                            font-weight: bold;
+                            background-color: #D8DAFD;
+                            border-radius: 4px;
+                        }
                         .currPrice {
                             color: #3B44F6;
                         }
@@ -465,7 +467,6 @@ body {
                                 padding: 6px;
                                 border-radius: 4px;
                                 font-size: 12px;
-
                             }
 
                             .prevPrice {
