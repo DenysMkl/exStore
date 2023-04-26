@@ -281,6 +281,7 @@ body {
           flex-direction: row;
 }
 .wrapper header .header_container .slider .slide .slidePhotos .bannerBlock {
+  width: 100%;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
