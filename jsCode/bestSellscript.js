@@ -14,11 +14,9 @@ function animationScroll(value){
         translateX: counter * value,
         duration: 1
     })
-    console.log(counter * value)
 }
 
 function showRightArrow(blockWidth, cardWidth, count, cardBlockWidth) {
-    console.log(blockWidth + cardWidth * count  , cardBlockWidth)
     return blockWidth + cardWidth * count  < cardBlockWidth
 }
 
@@ -30,6 +28,7 @@ arrowsBestGames.forEach((el)=>{
             counter += 1
         }
         animationScroll(-bestSellCard.offsetWidth)
+        console.log(bestSellCard.offsetWidth)
         bestSellarrowLeft.classList.toggle('active', counter > 0)
         bestSellarrowRight.classList.toggle('active', showRightArrow(bestSellBlock.offsetWidth, bestSellCard.offsetWidth, counter, cardBlockOfBestGames.offsetWidth))
     })
